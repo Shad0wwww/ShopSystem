@@ -1,0 +1,15 @@
+
+
+GuiMenu:
+  GuiName: "&a&LSHOPMENU &7- &f&LMAIN"
+  Rows: 5
+  Slot:
+    20:
+      item: HEAD
+      url: "http://textures.minecraft.net/texture/5193c89d1df679854f33c2215247b676a159d5395392d0c61b8476f813d9edb0"
+      name: "&a&LBLOCKS"
+      lore:
+        - "&f "
+        - "&f&lKlik her for at se blocks"
+
+

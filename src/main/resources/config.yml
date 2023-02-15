@@ -1,0 +1,5 @@
+PermissionDeniedMessage: "&8&l[ &a&lSHOPSYSTEM &8&l] &cDu har ikke adgang."
+DukoebteMessage: "&8&l[ &a&lSHOPSYSTEM &8&l] &fDu købte %amount% x%item%."
+DuHarikkeNokPenge: "&8&l[ &a&lSHOPSYSTEM &8&l] &fDu har ikke nok penge, du mangler &c$%mangler%."
+DuHarikkeNokPlads: "&8&l[ &a&lSHOPSYSTEM &8&l] &fDu har ikke nok &cplads."
+containsINv: "&a&LSHOPMENU &7-"

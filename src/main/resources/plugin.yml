@@ -1,0 +1,11 @@
+name: ShopSystem
+version: '${project.version}'
+main: dk.shadow.ShopSystem
+api-version: 1.19
+authors: [ Shad0wsense ]
+description: A shopSysttem
+website: Cutekat.dk
+commands:
+  shopsystem:
+    aliases: [shop]
+    description: Command for shopsystem

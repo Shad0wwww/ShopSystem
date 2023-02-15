@@ -1,0 +1,28 @@
+
+GuiMenu:
+  GuiName: "&a&LSHOPMENU &7- &f&LBYGGEBLOCKS"
+  Rows: 5
+  Slot:
+    9:
+      item: COBBLESTONE
+      name: "&8&lCOBBLE &f&lSTONE"
+      lore:
+        - "&f "
+        - "&fKoster: &a$25"
+        - "&f "
+        - "&fVenstreklik for at købe 1x"
+        - "&f"
+        - "&fHøjreklik for at købe 16x"
+        - "&f"
+    10:
+      item: STONE
+      name: "&7&lSTONE"
+      lore:
+        - "&f "
+        - "&fKoster: &a$25"
+        - "&f "
+        - "&fVenstreklik for at købe 1x"
+        - "&f"
+        - "&fHøjreklik for at købe 16x"
+        - "&f"
+
