@@ -14,8 +14,8 @@ import java.io.File;
 public final class ShopSystem extends JavaPlugin {
 
     public static ShopSystem instance;
-    public static Config config, maingui, blockmenu;
-    public static FileConfiguration configYML, mainguiYML, blockmenuYML;
+    public static Config config, maingui, blockmenu, menu2;
+    public static FileConfiguration configYML, mainguiYML, blockmenuYML, menu2YML;
     public static Economy econ = null;
     @Override
     public void onEnable() {
@@ -26,6 +26,7 @@ public final class ShopSystem extends JavaPlugin {
         if (!(new File(getDataFolder(), "config.yml")).exists())saveResource("config.yml", false);
         if (!(new File(getDataFolder(), "maingui.yml")).exists())saveResource("maingui.yml", false);
         if (!(new File(getDataFolder(), "menu1.yml")).exists())saveResource("menu1.yml", false);
+        if (!(new File(getDataFolder(), "menu2.yml")).exists())saveResource("menu2.yml", false);
         config = new Config(this, null, "config.yml");
         configYML = config.getConfig();
 
@@ -34,6 +35,9 @@ public final class ShopSystem extends JavaPlugin {
 
         blockmenu = new Config(this, null, "menu1.yml");
         blockmenuYML = blockmenu.getConfig();
+
+        menu2 = new Config(this, null, "menu2.yml");
+        menu2YML = menu2.getConfig();
 
         //SetUpEcon
         setupEconomyPlugin();

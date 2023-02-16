@@ -1,0 +1,26 @@
+GuiMenu:
+  GuiName: "&a&LSHOPMENU &7- &f&LFARVETBLOCKS"
+  Rows: 5
+  Slot:
+    9:
+      item: WHITE_WOOL
+      name: "&7&lWHITE &f&lULD"
+      lore:
+        - "&f "
+        - "&fKoster: &a$50"
+        - "&f "
+        - "&fVenstreklik for at købe 1x"
+        - "&f"
+        - "&fHøjreklik for at købe 16x"
+        - "&f"
+    10:
+      item: ORANGE_WOOL
+      name: "&6&lORANGE &f&lULD"
+      lore:
+        - "&f "
+        - "&fKoster: &a$50"
+        - "&f "
+        - "&fVenstreklik for at købe 1x"
+        - "&f"
+        - "&fHøjreklik for at købe 16x"
+        - "&f"

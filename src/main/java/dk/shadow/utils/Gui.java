@@ -78,7 +78,7 @@ public class Gui {
         return item;
     }
 
-    public static ItemStack addItemsToplayer(final Material material,Integer i) {
+    public static ItemStack addItemsToplayer(Material material,Integer i) {
         ItemStack item = new ItemStack(material, i);
 
         // Set the name of the item

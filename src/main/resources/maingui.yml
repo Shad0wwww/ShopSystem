@@ -7,9 +7,14 @@ GuiMenu:
     20:
       item: HEAD
       url: "http://textures.minecraft.net/texture/5193c89d1df679854f33c2215247b676a159d5395392d0c61b8476f813d9edb0"
-      name: "&a&LBLOCKS"
+      name: "&a&LBYGGEBLOCKS"
       lore:
         - "&f "
         - "&f&lKlik her for at se blocks"
-
-
+    22:
+      item: HEAD
+      url: "https://textures.minecraft.net/texture/808ac5e28dbdfa2250c60287686db14ccbeb776c3f0867c9555b7e4956efba77"
+      name: "&a&LCOLOREDBLOCKS"
+      lore:
+        - "&f "
+        - "&f&lKlik her for at se blocks"
