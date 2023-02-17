@@ -12,17 +12,31 @@ public class ShopCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
-        if (!p.hasPermission("events.scramble")) {
+        if (!p.hasPermission("events.shop")) {
             sender.sendMessage(Chat.colored(ShopSystem.configYML.getString("PermissionDeniedMessage")));
             return true;
         }
         if (args.length == 0) {
             Main.mainShopMenu(p);
         } else if (args[0].equalsIgnoreCase("reload")) {
+            if (!p.hasPermission("shopsystem.reload")) {
+                sender.sendMessage(Chat.colored(ShopSystem.configYML.getString("PermissionDeniedMessage")));
+                return true;
+            }
+
             boolean success;
             try {
                 ShopSystem.maingui.reloadConfig();
                 ShopSystem.mainguiYML = ShopSystem.maingui.getConfig();
+
+                ShopSystem.blockmenu.reloadConfig();
+                ShopSystem.blockmenuYML = ShopSystem.blockmenu.getConfig();
+
+                ShopSystem.menu2.reloadConfig();
+                ShopSystem.menu2YML = ShopSystem.menu2.getConfig();
+
+                ShopSystem.menu3.reloadConfig();
+                ShopSystem.menu3YML = ShopSystem.menu3.getConfig();
 
                 ShopSystem.config.reloadConfig();
                 ShopSystem.configYML = ShopSystem.config.getConfig();

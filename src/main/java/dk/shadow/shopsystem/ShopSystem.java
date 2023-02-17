@@ -14,13 +14,24 @@ import java.io.File;
 public final class ShopSystem extends JavaPlugin {
 
     public static ShopSystem instance;
-    public static Config config, maingui, blockmenu, menu2, menu3;
-    public static FileConfiguration configYML, mainguiYML, blockmenuYML, menu2YML, menu3YML;
+    public static Config config, maingui, blockmenu, menu2, menu3, license;
+    public static FileConfiguration configYML, mainguiYML, blockmenuYML, menu2YML, menu3YML, licenseYML;
     public static Economy econ = null;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        if (!(new File(getDataFolder(), "license.yml")).exists())saveResource("license.yml", false);
+
+
+
+        license = new Config(this, null, "license.yml");
+        licenseYML = license.getConfig();
+
+        String license = licenseYML.getString("License");
+        if(!new AdvancedLicense(license, "https://license.cutekat.dk/verify.php", this).debug().register()) return;
+
 
         //Config.yml
         if (!(new File(getDataFolder(), "config.yml")).exists())saveResource("config.yml", false);
@@ -81,6 +92,12 @@ public final class ShopSystem extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        config.saveConfig();
+        maingui.saveConfig();
+        blockmenu.saveConfig();
+        menu2.saveConfig();
+        menu3.saveConfig();
+        license.saveConfig();
         // Plugin shutdown logic
     }
 }
