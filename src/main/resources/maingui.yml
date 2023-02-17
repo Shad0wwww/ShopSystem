@@ -13,8 +13,15 @@ GuiMenu:
         - "&f&lKlik her for at se blocks"
     22:
       item: HEAD
-      url: "https://textures.minecraft.net/texture/808ac5e28dbdfa2250c60287686db14ccbeb776c3f0867c9555b7e4956efba77"
+      url: "http://textures.minecraft.net/texture/549a20f164964aae571c59c92c88d2546b26923dc51d4cbe70a2848003fa8d8b"
       name: "&a&LCOLOREDBLOCKS"
       lore:
         - "&f "
         - "&f&lKlik her for at se blocks"
+    24:
+      item: HEAD
+      url: "http://textures.minecraft.net/texture/bdaf68259fd279d7cbfedeb3c9d8e7e3def16c09dfd84522f488be1e027fe5e3"
+      name: "&7&LTOOLS"
+      lore:
+        - "&f "
+        - "&f&lKlik her for at se tools"

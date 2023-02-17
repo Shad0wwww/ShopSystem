@@ -1,0 +1,15 @@
+GuiMenu:
+  GuiName: "&a&LSHOPMENU &7- &f&LTOOLS"
+  Rows: 5
+  Slot:
+    9:
+      item: DIAMOND_SWORD
+      name: "&b&LDIAMOND_SWORD"
+      lore:
+        - "&f "
+        - "&fKoster: &a$50"
+        - "&f "
+        - "&fVenstreklik for at købe 1x"
+        - "&f"
+        - "&fHøjreklik for at købe 16x"
+        - "&f"

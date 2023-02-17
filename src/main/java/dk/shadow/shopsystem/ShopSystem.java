@@ -1,8 +1,8 @@
-package dk.shadow;
+package dk.shadow.shopsystem;
 
-import dk.shadow.commands.ShopCommand;
-import dk.shadow.events.MainInventoryListener;
-import dk.shadow.utils.Config;
+import dk.shadow.shopsystem.commands.ShopCommand;
+import dk.shadow.shopsystem.events.MainInventoryListener;
+import dk.shadow.shopsystem.utils.Config;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -14,8 +14,8 @@ import java.io.File;
 public final class ShopSystem extends JavaPlugin {
 
     public static ShopSystem instance;
-    public static Config config, maingui, blockmenu, menu2;
-    public static FileConfiguration configYML, mainguiYML, blockmenuYML, menu2YML;
+    public static Config config, maingui, blockmenu, menu2, menu3;
+    public static FileConfiguration configYML, mainguiYML, blockmenuYML, menu2YML, menu3YML;
     public static Economy econ = null;
     @Override
     public void onEnable() {
@@ -27,6 +27,8 @@ public final class ShopSystem extends JavaPlugin {
         if (!(new File(getDataFolder(), "maingui.yml")).exists())saveResource("maingui.yml", false);
         if (!(new File(getDataFolder(), "menu1.yml")).exists())saveResource("menu1.yml", false);
         if (!(new File(getDataFolder(), "menu2.yml")).exists())saveResource("menu2.yml", false);
+        if (!(new File(getDataFolder(), "menu3.yml")).exists())saveResource("menu3.yml", false);
+
         config = new Config(this, null, "config.yml");
         configYML = config.getConfig();
 
@@ -38,6 +40,9 @@ public final class ShopSystem extends JavaPlugin {
 
         menu2 = new Config(this, null, "menu2.yml");
         menu2YML = menu2.getConfig();
+
+        menu3 = new Config(this, null, "menu3.yml");
+        menu3YML = menu3.getConfig();
 
         //SetUpEcon
         setupEconomyPlugin();

@@ -1,4 +1,4 @@
-package dk.shadow.utils;
+package dk.shadow.shopsystem.utils;
 
 import net.md_5.bungee.api.ChatColor;
 
@@ -13,11 +13,13 @@ public class Chat {
         return s.replaceAll("§", "&");
 
     }
-    public static List<String> getColored(List<String> lores){
-        List<String> coloredLores = new ArrayList<String>();
-        for(String lore : lores){
-            coloredLores.add(ChatColor.translateAlternateColorCodes('&', lore)); }
-        return coloredLores;
+
+    public static List<String> getColored(List<String> lore) {
+        List<String> coloredLore = new ArrayList<String>();
+        for (String line : lore) {
+            coloredLore.add(ChatColor.translateAlternateColorCodes('&', line));
+        }
+        return coloredLore;
     }
 
 }

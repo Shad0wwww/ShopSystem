@@ -1,4 +1,4 @@
-package dk.shadow.utils;
+package dk.shadow.shopsystem.utils;
 
 import io.papermc.lib.PaperLib;
 import org.bukkit.Material;

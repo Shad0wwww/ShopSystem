@@ -1,12 +1,13 @@
-package dk.shadow.events;
+package dk.shadow.shopsystem.events;
 
-import dk.shadow.ShopSystem;
-import dk.shadow.shops.BlockMenu;
-import dk.shadow.shops.FarvetBlocks;
-import dk.shadow.shops.Main;
-import dk.shadow.utils.Chat;
-import dk.shadow.utils.Gui;
-import dk.shadow.utils.UniversalMaterial;
+import dk.shadow.shopsystem.ShopSystem;
+import dk.shadow.shopsystem.shops.BlockMenu;
+import dk.shadow.shopsystem.shops.FarvetBlocks;
+import dk.shadow.shopsystem.shops.Main;
+import dk.shadow.shopsystem.shops.ToolsMenu;
+import dk.shadow.shopsystem.utils.Chat;
+import dk.shadow.shopsystem.utils.Gui;
+import dk.shadow.shopsystem.utils.UniversalMaterial;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -27,6 +28,8 @@ public class MainInventoryListener implements Listener {
     String contains = Chat.colored(ShopSystem.config.getConfig().getString("containsINv"));
     String blockname = Chat.colored(ShopSystem.blockmenu.getConfig().getString("GuiMenu.GuiName"));
     String farvetkname = Chat.colored(ShopSystem.menu2.getConfig().getString("GuiMenu.GuiName"));
+
+    String toolsmenu = Chat.colored(ShopSystem.menu3.getConfig().getString("GuiMenu.GuiName"));
     FarvetBlocks farvetBlocks = new FarvetBlocks();
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
@@ -45,6 +48,8 @@ public class MainInventoryListener implements Listener {
 
                 if (itemName.contains("bygge")) {
                     BlockMenu.blockShopMenu(player);
+                } else if (itemName.contains("tools")) {
+                    ToolsMenu.mainShopMenu(player);
                 } else {
                     farvetBlocks.farvetShopMenu(player);
                 }
@@ -57,7 +62,7 @@ public class MainInventoryListener implements Listener {
         }
 
 
-        if(e.getClickedInventory().getName().equals(Chat.colored(blockname)) || e.getClickedInventory().getName().equals(Chat.colored(farvetkname))) {
+        if(e.getClickedInventory().getName().equals(Chat.colored(blockname)) || e.getClickedInventory().getName().equals(Chat.colored(farvetkname)) || e.getClickedInventory().getName().equals(Chat.colored(toolsmenu))) {
             e.setCancelled(true);
             if (e.getSlot() == 44) {
                 Main.mainShopMenu(player);
@@ -92,11 +97,11 @@ public class MainInventoryListener implements Listener {
                         Material itemType = e.getCurrentItem().getType();
 
                         if (e.getClick().isLeftClick()) {
-                            buyFromShop(player, String.valueOf(itemType), pris, 1);
+                            buyFromShop(player, String.valueOf(itemType), e.getCurrentItem().getDurability(), pris, 1);
 
                         }
                         if (e.isRightClick()) {
-                            buyFromShop(player, String.valueOf(itemType), pris, 16);
+                            buyFromShop(player, String.valueOf(itemType), e.getCurrentItem().getDurability(), pris, 16);
                         }
 
                     }
@@ -109,25 +114,24 @@ public class MainInventoryListener implements Listener {
 
     }
 
-    private void buyFromShop(Player player, String s, Integer i, Integer a) {
+    private void buyFromShop(Player player, String s, short sh, Integer i, Integer a) {
         int price = i*a;
-        Bukkit.broadcastMessage(s);
         if (player.getInventory().firstEmpty() != -1) {
             if(ShopSystem.econ.getBalance(player) >= price) {
                 if (s.contains("generator")) {
                     player.getInventory().addItem(Gui.createItemStackWithNoYml(new ItemStack(Material.STAINED_CLAY), "&7&lCLAY &f&lGENERATOR", "&f"));
 
-                }else if (s.contains("wool")){
+                }else if (s.contains("WOOL")){
+                    //UniversalMaterial universalMaterial = UniversalMaterial.valueOf(s);
+                    ItemStack item = new ItemStack(Material.valueOf(s), a , sh);
 
-                        UniversalMaterial universalMaterial = UniversalMaterial.valueOf(s);
-                        ItemStack itemStack = universalMaterial.getStack();
-                        itemStack.setAmount(a);
-                        player.getInventory().addItem(itemStack);
-
+                    player.getInventory().addItem(item);
                 } else {
                     player.getInventory().addItem(Gui.addItemsToplayer(Material.valueOf(s), a));
 
                 }
+
+
                 ShopSystem.econ.bankWithdraw(player.getName(), price);
                 player.playSound(player.getLocation(), Sound.LEVEL_UP, 1, 5);
                 player.sendMessage(Chat.colored(ShopSystem.configYML.getString("DukoebteMessage").replace("%amount%", String.valueOf(a)).replace("%item%", s)));

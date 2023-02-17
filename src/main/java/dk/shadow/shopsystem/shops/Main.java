@@ -1,14 +1,12 @@
-package dk.shadow.shops;
+package dk.shadow.shopsystem.shops;
 
-import dk.shadow.ShopSystem;
-import dk.shadow.utils.*;
+import dk.shadow.shopsystem.ShopSystem;
+import dk.shadow.shopsystem.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {

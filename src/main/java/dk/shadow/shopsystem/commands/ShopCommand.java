@@ -1,8 +1,8 @@
-package dk.shadow.commands;
+package dk.shadow.shopsystem.commands;
 
-import dk.shadow.ShopSystem;
-import dk.shadow.shops.Main;
-import dk.shadow.utils.Chat;
+import dk.shadow.shopsystem.ShopSystem;
+import dk.shadow.shopsystem.shops.Main;
+import dk.shadow.shopsystem.utils.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,6 +23,7 @@ public class ShopCommand implements CommandExecutor {
             try {
                 ShopSystem.maingui.reloadConfig();
                 ShopSystem.mainguiYML = ShopSystem.maingui.getConfig();
+
                 ShopSystem.config.reloadConfig();
                 ShopSystem.configYML = ShopSystem.config.getConfig();
 

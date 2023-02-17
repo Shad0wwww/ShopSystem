@@ -1,13 +1,12 @@
-package dk.shadow.shops;
+package dk.shadow.shopsystem.shops;
 
-import dk.shadow.ShopSystem;
-import dk.shadow.utils.*;
+import dk.shadow.shopsystem.ShopSystem;
+import dk.shadow.shopsystem.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
@@ -20,9 +19,6 @@ public class FarvetBlocks {
         for (String slot : ShopSystem.menu2YML.getConfigurationSection("GuiMenu.Slot").getKeys(false)) {
 
             String itemString = ShopSystem.menu2YML.getString("GuiMenu.Slot."+slot+".item");
-            Bukkit.broadcastMessage(itemString);
-
-
 
             String itemName = Chat.colored(ShopSystem.menu2YML.getString("GuiMenu.Slot."+slot+".name"));
             List<String> lores = ShopSystem.menu2YML.getStringList("GuiMenu.Slot."+slot+".lore");

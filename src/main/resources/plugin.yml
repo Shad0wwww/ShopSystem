@@ -1,6 +1,6 @@
 name: ShopSystem
 version: '${project.version}'
-main: dk.shadow.ShopSystem
+main: dk.shadow.shopsystem.ShopSystem
 api-version: 1.19
 authors: [ Shad0wsense ]
 description: A shopSysttem
